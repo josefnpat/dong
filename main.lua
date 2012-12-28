@@ -1,19 +1,15 @@
 dong = require("dong")
 
-j = 1
-name = love.joystick.getName(j)
-
-axes = love.joystick.getNumAxes(j)
-print("axes:"..axes)
-
-buttons = love.joystick.getNumButtons( j )
-print("buttons:"..buttons)
-
-stick_offsetl = {x=200,y=200}
-stick_offsetr = {x=600,y=200}
-
 function love.draw()
-  love.graphics.print(name,0,0)
+  draw_joy(1,0)
+--  draw_joy(2,300)
+end
+
+function draw_joy(j,yoffset)
+  local stick_offsetl = {x=200,y=150+yoffset}
+  local stick_offsetr = {x=450,y=150+yoffset}
+
+  love.graphics.print(love.joystick.getName(j),16,16+yoffset)
   local lstickx,lsticky = dong.ls(j)
   love.graphics.setColor(255,255,255,127)
   love.graphics.line(stick_offsetl.x-100,stick_offsetl.y,stick_offsetl.x+100,stick_offsetl.y)
@@ -46,7 +42,13 @@ function love.draw()
     else
       love.graphics.setColor(255,255,255,127)
     end
-    love.graphics.print(button.." ["..i.."]",32,300+(i-1)*16)
+    love.graphics.print(button.." ["..i.."]",16,32+(i-1)*16+yoffset)
     love.graphics.setColor(255,255,255)
+  end
+end
+
+function love.keypressed(key)
+  if key == "escape" then
+    love.event.quit()
   end
 end
