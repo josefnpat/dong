@@ -1,4 +1,4 @@
-dong = {}
+local dong = {}
 
 function dong._getAxes(joystick)
   local temp = {}
