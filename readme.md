@@ -1,5 +1,21 @@
 A xbox 360 controller wrapper for love 0.8.0
 
+##USAGE
+
+###LINIX
+
+Install xboxdrv and include dong.lua in your project.
+
+###OS X
+
+Install Tattiebogle and include dong.lua in your project.
+
+###WINDOWS
+
+Ensure you have the Direct X 9.0+ installed and then include the `*.dll`'s in the `windows/` folder next to your love.exe
+
+##Testing
+
 This wrapper has been tested with;
 
 * The xbox 360 wireless receiver
@@ -19,6 +35,3 @@ Tested with;
 * OS X w/ Tattiebogle
 * Windows Vista Ultimate w/ msft drivers
 
-Known Bugs;
-
-For some reason, windows drivers (xbox official and directX) combine LT and RT into one axis, basically making concurrency usage trash. While dong will register the triggers independently with correct values (compared to linux & OS X), dong will only be able to use one at a time.
