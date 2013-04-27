@@ -23,19 +23,20 @@ dong.os["OS X"] = {
   end
 }
 
+if love._os == "Windows" then
+  xinput = require('lua-xinput')
+end
+
 dong.os["Windows"] = {
   _getAxes = function(joystick)
     local temp = {}
     local trigger = nil
     temp.ls_x,temp.ls_y,trigger,temp.rs_y,temp.rs_x = love.joystick.getAxes(joystick)
-    if trigger < 0 then
-      temp.rt = -trigger*2-1
-      temp.lt = -1
-    elseif trigger > 0 then
-      temp.lt = trigger*2-1
-      temp.rt = -1
-    else -- trigger == 0
-      temp.rt,temp.lt = -1,-1
+    local xinput_data = {xinput.getState(joystick-1)}
+    if xinput_data then
+      temp.rt = xinput_data[3]/255*2-1
+      temp.lt = xinput_data[4]/255*2-1
+      print(temp.rt,temp.lt)
     end
     return temp
   end,
