@@ -34,8 +34,8 @@ dong.os["Windows"] = {
     temp.ls_x,temp.ls_y,trigger,temp.rs_y,temp.rs_x = love.joystick.getAxes(joystick)
     local xinput_data = {xinput.getState(joystick-1)}
     if xinput_data then
-      temp.rt = xinput_data[3]/255*2-1
-      temp.lt = xinput_data[4]/255*2-1
+      temp.lt = xinput_data[3]/255*2-1
+      temp.rt = xinput_data[4]/255*2-1
       print(temp.rt,temp.lt)
     end
     return temp
