@@ -12,7 +12,9 @@ Install Tattiebogle and include dong.lua in your project.
 
 ###WINDOWS
 
-Ensure you have the Direct X 9.0+ installed and then include the `*.dll`'s in the `windows/` folder next to your love.exe
+Ensure you have the Direct X 9.0+ installed and then include the `*.dll`'s in the `windows-<arch>/` folder next to your love.exe
+
+Note: 64 bit versions of windows will not run 32 bit version dlls; be prepared to distribute to both architectures.
 
 ##Testing
 
