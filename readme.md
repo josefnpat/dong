@@ -2,7 +2,7 @@ A xbox 360 controller wrapper for love 0.8.0
 
 ##USAGE
 
-###LINIX
+###LINUX
 
 Install xboxdrv and include dong.lua in your project.
 
